@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>竞彩网 · 再次遇见 & 持续关注</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f2f9fa;
+            color: #1c2e36;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 主视觉卡片群 */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-main {
+            background: linear-gradient(145deg, #0b4f5e 0%, #1a7a8a 100%);
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            color: #eaf9fc;
+            box-shadow: 0 12px 28px -8px rgba(11, 79, 94, 0.25);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-main h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-main p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 90%;
+        }
+
+        .hero-sub {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0, 40, 50, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid #d5e9ed;
+        }
+
+        .hero-sub .badge {
+            display: inline-block;
+            background: #d3ecef;
+            color: #06505e;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            align-self: flex-start;
+        }
+
+        .hero-sub h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #09404b;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-sub .tagline {
+            color: #3a6b75;
+            font-size: 0.95rem;
+        }
+
+        /* 用途卡片 (网格) */
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #09404b;
+            margin: 2.5rem 0 1.2rem 0;
+            letter-spacing: -0.01em;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 4px 14px rgba(0, 50, 60, 0.04);
+            border: 1px solid #dceeef;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #6dbac9;
+            box-shadow: 0 12px 24px -8px rgba(11, 79, 94, 0.12);
+        }
+
+        .card .emoji-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #09404b;
+            margin-bottom: 0.3rem;
+        }
+
+        .card p {
+            color: #3d5e67;
+            font-size: 0.92rem;
+        }
+
+        /* 适合人群 (横向交错) */
+        .audience-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .audience-item {
+            background: white;
+            border-left: 6px solid #2b8b9b;
+            border-radius: 1rem;
+            padding: 1rem 1.6rem;
+            flex: 1 1 180px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .audience-item .role {
+            font-weight: 600;
+            color: #09404b;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .audience-item .desc {
+            color: #3f6c77;
+            font-size: 0.9rem;
+        }
+
+        /* 自然链接段落 */
+        .link-section {
+            background: #e9f6f8;
+            padding: 2rem 2rem 2rem 2.2rem;
+            border-radius: 2rem;
+            margin: 2.8rem 0 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            border: 1px solid #c7e2e7;
+        }
+
+        .link-text {
+            flex: 1 1 240px;
+            color: #1a4b55;
+        }
+
+        .link-text p {
+            margin-bottom: 0.3rem;
+        }
+
+        .link-text strong {
+            color: #09404b;
+        }
+
+        .link-text a {
+            color: #0b5b69;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #6cbccc;
+            padding-bottom: 1px;
+            transition: border 0.15s;
+        }
+
+        .link-text a:hover {
+            border-bottom-color: #09404b;
+        }
+
+        .link-note {
+            font-size: 0.95rem;
+            background: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 60px;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            color: #1d5d69;
+        }
+
+        /* faq 摘要 */
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1rem 1.2rem;
+            border-radius: 1.2rem;
+            border: 1px solid #dbedef;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #09404b;
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a {
+            color: #3f6c77;
+            font-size: 0.9rem;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #cde2e6;
+            text-align: center;
+            color: #4d777f;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1rem 0.9rem;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-main h1 {
+                font-size: 1.8rem;
+            }
+            .hero-main p {
+                max-width: 100%;
+            }
+            .faq-mini {
+                grid-template-columns: 1fr;
+            }
+            .link-section {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1.5rem;
+            }
+            .audience-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 主视觉 -->
+    <div class="hero-grid">
+        <div class="hero-main">
+            <h1>再次相遇<br>从收藏开始</h1>
+            <p>把熟悉的信息入口留在手边，<br>每一次打开都更从容。</p>
+        </div>
+        <div class="hero-sub">
+            <span class="badge">📌 持续关注</span>
+            <h2>你上次到访还记得吗？</h2>
+            <p class="tagline">无论是赛前查阅还是赛后回味，值得你为它留一个书签。</p>
+            <p style="margin-top: 0.8rem; color:#236c7a; font-size:0.9rem;">✦ 常回来看看，资讯依旧清晰有序</p>
+        </div>
+    </div>
+
+    <!-- 用途卡片 -->
+    <h2 class="section-title">📋 信息用途 · 自然融入日常</h2>
+    <div class="card-grid">
+        <div class="card">
+            <span class="emoji-icon">🏷️</span>
+            <h3>快速检索</h3>
+            <p>清晰的分类与版块，让查找变得直接，无需反复跳转。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-icon">📊</span>
+            <h3>赛事脉络</h3>
+            <p>从联赛到杯赛，从早场到深夜，结构化的信息帮你跟上节奏。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-icon">🔄</span>
+            <h3>常看常新</h3>
+            <p>内容持续更新，适合养成定期浏览的习惯，不遗漏变化。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-icon">📁</span>
+            <h3>收藏友好</h3>
+            <p>界面简洁克制，无论桌面还是手机，书签后再次访问依旧顺手。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <h2 class="section-title">👥 谁在持续关注</h2>
+    <div class="audience-row">
+        <div class="audience-item">
+            <div class="role">⚡ 日常查阅者</div>
+            <div class="desc">喜欢提前浏览赛程、关注联赛动态，把网站当作信息锚点。</div>
+        </div>
+        <div class="audience-item">
+            <div class="role">🕊️ 偶尔回访者</div>
+            <div class="desc">不需要每日登陆，但总在需要时快速找到，体验稳定可靠。</div>
+        </div>
+        <div class="audience-item">
+            <div class="role">📎 信息整理派</div>
+            <div class="desc">习惯保留多个信息源，把这里作为其中一个固定的参考坐标。</div>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 (嵌入 a 标签) -->
+    <div class="link-section">
+        <div class="link-text">
+            <p><strong>方便再次找到</strong> —— 将 <a href="https://officialsite-sporttery.com">竞彩网</a> 加入浏览器书签或收藏夹，下次访问只需一次点击。</p>
+            <p style="margin-top: 0.5rem;">无需记住复杂地址，打开收藏夹就能回到熟悉的信息版面。</p>
+        </div>
+        <div class="link-note">
+            ⭐ 书签 · 持续关注
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2 class="section-title" style="margin-top: 1.5rem;">❓ 常见想法 · 简短回应</h2>
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="q">为什么推荐收藏这个网站？</div>
+            <div class="a">结构清晰、更新规律，特别适合作为长期信息参照。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">手机上看方便吗？</div>
+            <div class="a">移动端适配友好，字号和卡片布局都经过专门优化。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">需要注册才能浏览吗？</div>
+            <div class="a">直接访问即可查阅公开内容，无需注册或登录。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">内容多久更新一次？</div>
+            <div class="a">保持与赛事节奏同步，休赛期也有历史数据可回顾。</div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>温和提醒：适度浏览，保持自己的节奏。再次访问，往往有新的发现。</span>
+        <br><span style="opacity: 0.6; font-size: 0.8rem;">&copy; 信息页面 · 仅供交流参考</span>
+    </div>
+</div>
+</body>
+</html>
